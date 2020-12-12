@@ -3,14 +3,12 @@ package com.code.backend.controller;
 import com.code.backend.model.Leaderboard;
 import com.code.backend.repository.LeaderboardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController
+@RequestMapping("leaderboard")
 public class LeaderboardController {
     @Autowired
     LeaderboardRepository leaderboardRepository;
@@ -20,13 +18,18 @@ public class LeaderboardController {
         return "string";
     }
 
-    @GetMapping("leaderboard")
+    @GetMapping
     public List<Leaderboard> getAllLeaderboard() {
         return leaderboardRepository.findAll();
     }
 
-    @PostMapping("leaderboard")
+    @PostMapping
     public Leaderboard saveLeaderboard(@RequestBody Leaderboard leaderboard){
         return leaderboardRepository.save(leaderboard);
+    }
+
+    @PutMapping
+    public List<Leaderboard> updateLeaderboard(@RequestBody List<Leaderboard> leaderboard){
+        return leaderboardRepository.saveAll(leaderboard);
     }
 }
