@@ -1,0 +1,32 @@
+
+# Server
+server:
+  port: 9090
+  servlet:
+    context-path: /api
+
+#mongodb
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://admin:admin@conferencebooking.tsakh.azure.mongodb.net/coda?retryWrites=true&w=majority
+      database: coda
+  output:
+    ansi:
+      enabled: always
+
+#Logging
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+
+#CORS
+app:
+  cors:
+    origin:
+      - http://localhost:8100
