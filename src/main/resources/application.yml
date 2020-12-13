@@ -9,7 +9,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://admin:admin@conferencebooking.tsakh.azure.mongodb.net/coda?retryWrites=true&w=majority
+      uri: 
       database: coda
   output:
     ansi:
